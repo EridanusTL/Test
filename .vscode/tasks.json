@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "cwd": "${workspaceFolder}/build"
+  },
+  "tasks": [
+    {
+      "type": "cmake",
+      "label": "CMake: build",
+      "command": "build",
+      "targets": ["all"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "CMake template build task"
+    },
+    {
+      "label": "cmake",
+      "type": "shell",
+      "windows": {
+        "command": "cmake",
+        "args": ["-G", "MinGW Makefiles", ".."]
+      },
+      "linux": {
+        "command": "cmake",
+        "args": [".."]
+      }
+    },
+    {
+      "label": "make",
+      "type": "shell",
+      "windows": {
+        "command": "mingw32-make"
+      },
+      "linux": {
+        "command": "make",
+        "args": ["-j20"]
+      }
+    },
+    {
+      "label": "Build",
+      "dependsOn": ["cmake", "make"]
+    }
+  ]
+}
