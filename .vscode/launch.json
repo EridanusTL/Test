@@ -9,8 +9,7 @@
       "type": "python",
       "request": "launch",
       "program": "${file}",
-      "console": "integratedTerminal",
-      "justMyCode": true
+      "console": "integratedTerminal"
     },
     {
       "name": "(gdb) 启动",
@@ -19,7 +18,7 @@
       "program": "${workspaceFolder}/build/main",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${fileDirname}",
+      "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",

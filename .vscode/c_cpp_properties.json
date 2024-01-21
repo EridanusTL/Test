@@ -4,9 +4,20 @@
       "name": "Linux",
       "includePath": ["${workspaceFolder}/**", "${workspaceFolder}/include"],
       "defines": [],
-      "compilerPath": "/usr/bin/gcc",
       "cStandard": "c17",
-      "cppStandard": "gnu++14",
+      "cppStandard": "gnu++11",
+      "intelliSenseMode": "linux-gcc-x64"
+    },
+    {
+      "name": "Windows",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/thirdparties/opencv-4.9.0/build/install/include"
+      ],
+      "defines": [],
+      "cStandard": "c17",
+      "cppStandard": "gnu++17",
       "intelliSenseMode": "linux-gcc-x64"
     }
   ],

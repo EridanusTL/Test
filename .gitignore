@@ -1,3 +1,7 @@
 build/*
 dataset/
+<<<<<<< HEAD
 scripts/__pycache__/preview
+=======
+thirdparties/
+>>>>>>> 872288d (Added opencv library)
