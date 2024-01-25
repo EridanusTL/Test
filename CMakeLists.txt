@@ -17,7 +17,7 @@ set(OpenCV_DIR ./thirdparties/opencv-4.9.0/build)
 find_package(OpenCV REQUIRED)
 include_directories(thirdparties/opencv-4.9.0/build/install/include)
 
-add_executable(main ${CPP_FILES})
+add_executable(main src/main.cpp)
 target_link_libraries(main ${OpenCV_LIBS})
 
 
