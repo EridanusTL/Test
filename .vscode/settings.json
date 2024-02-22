@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.xml": "html",
+    "vector": "cpp",
+    "ostream": "cpp"
+  }
+}

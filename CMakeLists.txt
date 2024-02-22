@@ -8,8 +8,6 @@ project(TEST)
 
 set(CMAKE_BUILD_TYPE "Debug")
 # set(CMAKE_BUILD_TYPE "Release")
-
-file(GLOB_RECURSE CPP_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 include_directories(include)
 
 # Set opencv
@@ -17,7 +15,13 @@ set(OpenCV_DIR ./thirdparties/opencv-4.9.0/build)
 find_package(OpenCV REQUIRED)
 include_directories(thirdparties/opencv-4.9.0/build/install/include)
 
+<<<<<<< Updated upstream
 add_executable(main src/main.cpp)
+=======
+# file(GLOB_RECURSE CPP_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+# add_executable(main ${CPP_FILES})
+add_executable(main src/traditional_algorithm.cpp)
+>>>>>>> Stashed changes
 target_link_libraries(main ${OpenCV_LIBS})
 
 

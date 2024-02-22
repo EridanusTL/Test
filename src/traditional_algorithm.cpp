@@ -2,12 +2,14 @@
 #include <Eigen/Dense>
 #include <opencv2/opencv.hpp>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 using namespace cv;
 
-vector<Point2i> GrayCenter(Mat src, int direction)
+vector<Point2i> GrayGravity(Mat src, int direction)
 {
+    Mat grayimg;
     vector<Point2i> centerPoint;
     if (direction == 0)
     {
@@ -92,6 +94,7 @@ vector<Point2i> GrayCenter(Mat src, int direction)
 
 vector<Point2i> StegerLine(Mat src)
 {
+    Mat src_prime = src.clone();
     vector<Point2i> centerPoint;
     // 高斯滤波
     src.convertTo(src, CV_32FC1);
@@ -129,7 +132,7 @@ vector<Point2i> StegerLine(Mat src)
     {
         for (int j = 0; j < imgrow; j++)
         {
-            if (src.at<uchar>(j, i) > 200)
+            if (src_prime.at<uchar>(j, i) > 200)
             {
                 Mat hessian(2, 2, CV_32FC1);
                 hessian.at<float>(0, 0) = dxx.at<float>(j, i);
@@ -299,6 +302,8 @@ vector<Point2i> Zhang_Suen_ThinImg(Mat src)
 
 vector<Point2i> DistanceTransform(Mat src)
 {
+
+    threshold(src, src, 128, 255, cv::THRESH_BINARY);
     vector<Point2i> centerPoint;
     Mat distImg;
     threshold(src, src, 128, 255, cv::THRESH_BINARY);
@@ -326,12 +331,14 @@ vector<Point2i> DistanceTransform(Mat src)
 
 int main(int argc, char **argv)
 {
+    clock_t start, end;
+    start = clock();
 
     cv::Mat src = cv::imread("./dataset/1.bmp");
     Mat grayImage;
     cvtColor(src, grayImage, cv::COLOR_BGR2GRAY);
 
-    vector<Point2i> centerPoint = StegerLine(grayImage);
+    vector<Point2i> centerPoint = GrayGravity(grayImage, 0);
 
     for (const auto &pt : centerPoint)
     {
@@ -340,10 +347,11 @@ int main(int argc, char **argv)
         cv::circle(src, pt, 1, cv::Scalar(0, 0, 255), -1);
     }
 
+    end = clock();
+    cout << "time = " << double(end - start) << " ms" << endl;
     cv::imshow("src", src);
+    cv::imwrite("./output/GrayGravity.png", src);
     cv::waitKey(0);
-
-    std::cout << "Testing" << std::endl;
 
     return 0;
 }

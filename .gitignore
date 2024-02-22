@@ -1,7 +1,5 @@
 build/*
 dataset/
-<<<<<<< HEAD
+output/
 scripts/__pycache__/preview
-=======
-thirdparties/
->>>>>>> 872288d (Added opencv library)
+third_party/
