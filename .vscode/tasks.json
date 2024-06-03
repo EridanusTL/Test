@@ -8,7 +8,9 @@
       "type": "cmake",
       "label": "CMake: build",
       "command": "build",
-      "targets": ["all"],
+      "targets": [
+        "all"
+      ],
       "group": {
         "kind": "build",
         "isDefault": true
@@ -21,11 +23,17 @@
       "type": "shell",
       "windows": {
         "command": "cmake",
-        "args": ["-G", "MinGW Makefiles", ".."]
+        "args": [
+          "-G",
+          "MinGW Makefiles",
+          ".."
+        ]
       },
       "linux": {
         "command": "cmake",
-        "args": [".."]
+        "args": [
+          ".."
+        ]
       }
     },
     {
@@ -36,12 +44,36 @@
       },
       "linux": {
         "command": "make",
-        "args": ["-j30"]
+        "args": [
+          "-j30"
+        ]
       }
     },
     {
       "label": "Build",
-      "dependsOn": ["cmake", "make"]
+      "dependsOn": [
+        "cmake",
+        "make"
+      ]
+    },
+    {
+      "label": "bazel build",
+      "command": [
+        "E:/OneDrive/Packages/bazel.exe"
+      ],
+      "args": [
+        "build",
+        ":${fileBasenameNoExtension}",
+        "--compilation_mode=dbg"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Bazel build task",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }
