@@ -57,7 +57,7 @@
       ]
     },
     {
-      "label": "bazel build",
+      "label": "bazel build(windows)",
       "command": [
         "E:/OneDrive/Packages/bazel.exe"
       ],
@@ -74,6 +74,25 @@
         "kind": "build",
         "isDefault": true
       }
-    }
+    },
+    {
+      "label": "bazel build(linux)",
+      "command": [
+        "bazel"
+      ],
+      "args": [
+        "build",
+        ":${fileBasenameNoExtension}",
+        "--compilation_mode=dbg"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "detail": "Bazel build task",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
   ]
 }
