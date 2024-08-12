@@ -1,5 +1,5 @@
 cc_binary(
-    name = "main",
-    srcs = ["main.cc"],
+    name = "glog_test",
+    srcs = ["glog_test.cc"],
     deps = ["@com_github_google_glog//:glog"],
 )
