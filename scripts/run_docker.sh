@@ -1,6 +1,7 @@
 #!/bin/bash
 docker_image=tlbot/env:latest
-$(docker pull $docker_image)
+# docker pull tlbot/env:latest
+docker pull $docker_image
 
 id=tlbot_latest
 
