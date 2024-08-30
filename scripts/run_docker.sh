@@ -5,6 +5,10 @@ docker pull $docker_image
 
 id=tlbot_latest
 
+for gid in $(id -G); do
+  group_add_opts="$group_add_opts --group-add $gid"
+done
+
 docker run \
     --name=$id\
     --rm \
@@ -29,5 +33,6 @@ docker run \
     --tmpfs "$HOME/.vscode-server:exec,rw,uid=$(id -u)" \
     --volume $(pwd):$(pwd) \
     --user $(id -u) \
+    $group_add_opts \
     $docker_image
     bash --rcfile ~/.bashrc
