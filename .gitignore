@@ -3,7 +3,4 @@ dataset/
 output/
 scripts/__pycache__/preview
 third_party/
-/bazel-bin
-/bazel-out
-/bazel-Test
-/bazel-testlogs
+/bazel*

@@ -3,3 +3,12 @@ cc_binary(
     srcs = ["glog_test.cc"],
     deps = ["@com_github_google_glog//:glog"],
 )
+
+cc_binary(
+    name = "main",
+    srcs = ["main.cc"],
+    deps = [
+        "//third-party:eigen",
+        "//third-party:rbdl",
+    ],
+)
