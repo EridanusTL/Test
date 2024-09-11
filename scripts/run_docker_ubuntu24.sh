@@ -1,9 +1,9 @@
 #!/bin/bash
-docker_image=tlbot/env:latest
-# docker pull tlbot/env:latest
-docker pull $docker_image
+docker_image=ubuntu24:latest
 
-id=tlbot_latest
+# docker pull $docker_image
+
+id=ubuntu24
 
 for gid in $(id -G); do
   group_add_opts="$group_add_opts --group-add $gid"
@@ -12,13 +12,13 @@ done
 if [ "$(docker ps -q -f name=$id)" ]; then
     echo "Container $id is already running."
     echo "Attach on Container $id."
-    docker exec -it $id bash --rcfile ~/.bashrc
+    docker exec -it $id bash --rcfile ./scripts/bashrc_ubuntu24
 
 else
     if [ "$(docker ps -aq -f name=$id)" ]; then
         echo "Starting existing container $id."
         docker start $id
-        docker exec -it $id bash --rcfile ~/.bashrc
+        docker exec -it $id bash --rcfile ./scripts/bashrc_ubuntu24
     else
         echo "Creating and starting new container $id."
         docker run \
@@ -51,7 +51,7 @@ else
             --user $(id -u) \
             $group_add_opts \
             $docker_image \
-            bash --rcfile ~/.bashrc
+            bash --rcfile ./scripts/bashrc_ubuntu24
     fi
 fi
 
