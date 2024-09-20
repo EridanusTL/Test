@@ -8,8 +8,16 @@ cc_library(
 
 cc_library(
     name = "rbdl",
-    srcs = ["rbdl/lib/librbdl.so.3.3.1"],
+    srcs = [
+        "rbdl/lib/librbdl.so.3.3.1",
+        "rbdl/lib/librbdl_urdfreader.so.3.3.1",
+    ],
     hdrs = glob(["rbdl/include/**"]),
-    includes = ["."],
+    copts = ["-std=c++17"],
+    includes = [
+        "rbdl/include",
+        "rbdl/inclued/rbdl",
+        "rbdl/inclued/rbdl/addons/urdfreader",
+    ],
     visibility = ["//visibility:public"],
 )

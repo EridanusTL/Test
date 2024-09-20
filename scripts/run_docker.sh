@@ -1,5 +1,5 @@
 #!/bin/bash
-docker_image=ubuntu24:latest
+docker_image=tlbot/ubuntu24-robotics:latest
 
 # docker pull $docker_image
 
@@ -12,13 +12,13 @@ done
 if [ "$(docker ps -q -f name=$id)" ]; then
     echo "Container $id is already running."
     echo "Attach on Container $id."
-    docker exec -it $id bash --rcfile ./scripts/bashrc_ubuntu24
+    docker exec -it $id bash --rcfile ~/.bashrc
 
 else
     if [ "$(docker ps -aq -f name=$id)" ]; then
         echo "Starting existing container $id."
         docker start $id
-        docker exec -it $id bash --rcfile ./scripts/bashrc_ubuntu24
+        docker exec -it $id bash --rcfile ~/.bashrc
     else
         echo "Creating and starting new container $id."
         docker run \
@@ -51,7 +51,7 @@ else
             --user $(id -u) \
             $group_add_opts \
             $docker_image \
-            bash --rcfile ./scripts/bashrc_ubuntu24
+            bash --rcfile ~/.bashrc
     fi
 fi
 

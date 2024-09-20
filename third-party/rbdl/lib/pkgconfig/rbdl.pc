@@ -1,6 +1,6 @@
-prefix=/home/tlbot/code/rbdl_install
-libdir=/home/tlbot/code/rbdl_install/lib
-includedir=/home/tlbot/code/rbdl_install/include/rbdl
+prefix=/home/tlbot/code/rbdl-install
+libdir=/home/tlbot/code/rbdl-install/lib
+includedir=/home/tlbot/code/rbdl-install/include/rbdl
 
 Name: RBDL
 Description: Rigid Body Dynamics Library

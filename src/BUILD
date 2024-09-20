@@ -12,3 +12,13 @@ cc_binary(
         "//third-party:rbdl",
     ],
 )
+
+cc_binary(
+    name = "urdf_reader_test",
+    srcs = ["urdf_reader_test.cc"],
+    copts = ["-std=c++17"],
+    deps = [
+        "//third-party:eigen",
+        "//third-party:rbdl",
+    ],
+)
