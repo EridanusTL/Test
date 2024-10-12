@@ -1,7 +1,7 @@
-FROM ubuntu:24.04
+FROM ubuntu:22.04
 
-RUN apt update && apt upgrade -y 
-RUN apt install -y git vim curl wget sudo build-essential cmake python-is-python3
+RUN apt update && apt upgrade -y && \
+    apt install -y git vim curl wget sudo build-essential cmake python-is-python3 
 
 # # ROS2
 # RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg 
