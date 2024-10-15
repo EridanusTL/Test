@@ -21,3 +21,11 @@ cc_library(
     ],
     visibility = ["//visibility:public"],
 )
+
+cc_library(
+    name = "mujoco-lib",
+    srcs = ["mujoco/lib/libmujoco.so.3.2.2"],
+    hdrs = glob(["mujoco/**"]),
+    includes = ["."],
+    visibility = ["//visibility:public"],
+)

@@ -1,9 +1,9 @@
 #!/bin/bash
-docker_image=tlbot/ubuntu24-robotics:latest
+docker_image=ubuntu22-robotics:latest
 
 # docker pull $docker_image
 
-id=ubuntu24
+id=ros-humble
 
 for gid in $(id -G); do
   group_add_opts="$group_add_opts --group-add $gid"

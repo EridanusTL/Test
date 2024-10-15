@@ -3,6 +3,8 @@
     "*.xml": "html",
     "vector": "cpp",
     "ostream": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "optional": "cpp",
+    "variant": "cpp"
   }
 }
