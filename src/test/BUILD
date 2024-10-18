@@ -19,8 +19,7 @@ cc_binary(
     srcs = ["eigen_test.cc"],
     copts = ["-std=c++17"],
     deps = [
-        "//src/include:control",
-        "//src/include:singleton",
+        "//src/include:eigen",
     ],
 )
 
