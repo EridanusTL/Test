@@ -68,9 +68,7 @@
       "request": "launch",
       "type": "cppdbg",
       "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
-      "args": [
-        "--v=1"
-      ],
+      "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
