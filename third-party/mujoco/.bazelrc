@@ -1,2 +1,0 @@
-# build --experimental_convenience_symlinks=ignore
-# run --run_under="cd /path/to/root &&"

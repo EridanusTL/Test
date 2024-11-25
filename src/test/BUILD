@@ -1,10 +1,9 @@
 cc_binary(
     name = "urdf_reader_test",
     srcs = ["urdf_reader_test.cc"],
-    copts = ["-std=c++17"],
     deps = [
-        "//third-party:eigen",
-        "//third-party:rbdl",
+        "//third_party:eigen",
+        "//third_party:rbdl",
     ],
 )
 
@@ -17,7 +16,6 @@ cc_binary(
 cc_binary(
     name = "eigen_test",
     srcs = ["eigen_test.cc"],
-    copts = ["-std=c++17"],
     deps = [
         "//src/include:eigen",
     ],
@@ -26,9 +24,18 @@ cc_binary(
 cc_binary(
     name = "singleton_test",
     srcs = ["singleton_test.cc"],
-    copts = ["-std=c++17"],
     deps = [
         "//src/include:control",
         "//src/include:singleton",
+    ],
+)
+
+cc_binary(
+    name = "qpOASES_test",
+    srcs = ["qpOASES_test.cc"],
+    deps = [
+        "//third_party:eigen",
+        "//third_party:glog",
+        "//third_party:qpOASES",
     ],
 )

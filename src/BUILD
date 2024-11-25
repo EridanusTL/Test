@@ -2,7 +2,7 @@ cc_binary(
     name = "main",
     srcs = ["main.cc"],
     deps = [
-        "//third-party:eigen",
-        "//third-party:rbdl",
+        "//third_party:eigen",
+        "//third_party:rbdl",
     ],
 )
