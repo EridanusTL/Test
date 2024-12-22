@@ -39,3 +39,9 @@ cc_binary(
         "//third_party:qpOASES",
     ],
 )
+
+
+cc_binary(
+    name = "hello-world",
+    srcs = ["hello-world.cc"],
+)

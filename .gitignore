@@ -5,3 +5,4 @@ scripts/__pycache__/preview
 third_party/
 /bazel-*
 /sim/ros2
+/build

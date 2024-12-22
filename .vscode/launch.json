@@ -15,7 +15,7 @@
       "name": "cmank(gdb) 启动",
       "request": "launch",
       "type": "cppdbg",
-      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "program": "${workspaceFolder}/build/${relativeFileDirname}/${fileBasenameNoExtension}",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

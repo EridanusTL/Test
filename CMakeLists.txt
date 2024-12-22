@@ -5,6 +5,7 @@ project(TEST)
 # ${PROJECT_SOURCE_DIR}/src/*.cc 
 # ${PROJECT_SOURCE_DIR}/src/*.cpp
 # )
+add_subdirectory(src)
 
 set(CMAKE_BUILD_TYPE "Debug")
 # set(CMAKE_BUILD_TYPE "Release")
