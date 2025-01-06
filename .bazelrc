@@ -1,1 +1,3 @@
 # build --experimental_convenience_symlinks=ignore
+build --platforms=//src/platforms:x86_64_linux
+# build --platforms=//src/platforms:arm64_linux

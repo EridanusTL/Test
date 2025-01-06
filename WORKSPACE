@@ -1,5 +1,7 @@
 workspace(name = "test")
 
+# register_toolchains("//src/tools/arm64_toolchain:arm64_toolchain_registration")
+
 # load("//bazel_ros2_rules/tools:environ.bzl", "environment_repository")
 
 # environment_repository(

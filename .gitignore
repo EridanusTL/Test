@@ -3,6 +3,7 @@ dataset/
 output/
 scripts/__pycache__/preview
 third_party/
-/bazel-*
+**/bazel-*
 /sim/ros2
-/build
+**/MODULE.bazel
+**/MODULE.bazel.lock

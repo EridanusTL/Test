@@ -1,12 +1,12 @@
 {
   "version": "2.0.0",
-  "options": {
-    "cwd": "${workspaceFolder}/build"
-  },
   "tasks": [
     {
-      "type": "cmake",
       "label": "CMake: build",
+      "type": "cmake",
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
       "command": "build",
       "targets": [
         "all"
@@ -19,8 +19,11 @@
       "detail": "CMake template build task"
     },
     {
-      "label": "cmake",
       "type": "shell",
+      "label": "cmake",
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
       "windows": {
         "command": "cmake",
         "args": [
@@ -39,8 +42,14 @@
     {
       "label": "make",
       "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
       "windows": {
-        "command": "mingw32-make"
+        "command": "mingw32-make",
+        "args": [
+          "-j30"
+        ]
       },
       "linux": {
         "command": "make",
