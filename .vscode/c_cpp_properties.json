@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/third_parties",
+                "${workspaceFolder}/third_parties/Eigen3/include/eigen3"
             ],
             "defines": [],
             "cStandard": "c17",
