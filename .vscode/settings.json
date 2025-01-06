@@ -63,7 +63,8 @@
     "thread": "cpp",
     "cinttypes": "cpp",
     "typeinfo": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "dense": "cpp"
   },
   "ros.distro": "humble",
   "C_Cpp.default.compilerPath": "C:\\Users\\11844\\mingw64\\bin\\g++.exe"

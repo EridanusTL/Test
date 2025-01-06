@@ -1,0 +1,13 @@
+prefix=/home/tlbot/code/rbdl-install
+libdir=/home/tlbot/code/rbdl-install/lib
+includedir=/home/tlbot/code/rbdl-install/include/rbdl
+
+Name: RBDL
+Description: Rigid Body Dynamics Library
+URL: https://github.com/rbdl/rbdl
+Version: 3.3.1
+Requires: eigen3
+Conflicts:
+Libs: -L${libdir} -lrbdl -Wl,-rpath ${libdir}
+Libs.private:
+Cflags: -I${includedir}

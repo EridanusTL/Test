@@ -5,3 +5,4 @@ set(CMAKE_BUILD_TYPE "Debug")
 # set(CMAKE_BUILD_TYPE "Release")
 
 add_subdirectory(src)
+add_subdirectory(third_parties)
