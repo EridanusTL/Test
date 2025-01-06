@@ -43,5 +43,5 @@ cc_binary(
 
 cc_binary(
     name = "hello-world",
-    srcs = ["hello-world.cc"],
+    srcs = ["hello_world.cc"],
 )

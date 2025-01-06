@@ -19,11 +19,8 @@
       "detail": "CMake template build task"
     },
     {
-      "type": "shell",
       "label": "cmake",
-      "options": {
-        "cwd": "${workspaceFolder}/build"
-      },
+      "type": "shell",
       "windows": {
         "command": "cmake",
         "args": [
@@ -35,7 +32,11 @@
       "linux": {
         "command": "cmake",
         "args": [
-          ".."
+          "-S",
+          "${workspaceFolder}",
+          "-B",
+          "${workspaceFolder}/build",
+          "-DCMAKE_BUILD_TYPE=Debug"
         ]
       }
     },
@@ -63,7 +64,8 @@
       "dependsOn": [
         "cmake",
         "make"
-      ]
+      ],
+      "dependsOrder": "sequence",
     },
     {
       "label": "bazel build(windows)",

@@ -1,4 +1,4 @@
-build/
+**/build/
 dataset/
 output/
 scripts/__pycache__/preview

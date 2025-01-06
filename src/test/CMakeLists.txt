@@ -1,3 +1,3 @@
 project(test)
 
-add_executable(hello-world hello-world.cc)
+add_executable(hello_world hello_world.cc)
