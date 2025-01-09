@@ -64,7 +64,12 @@
     "cinttypes": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "dense": "cpp"
+    "dense": "cpp",
+    "ios": "cpp",
+    "condition_variable": "cpp",
+    "unordered_set": "cpp",
+    "fstream": "cpp",
+    "mutex": "cpp"
   },
   "ros.distro": "humble",
   "C_Cpp.default.compilerPath": "C:\\Users\\11844\\mingw64\\bin\\g++.exe"

@@ -5,7 +5,7 @@
 
 #include <glog/logging.h>
 #include <Eigen/Dense>
-
+namespace mymath {
 Eigen::Matrix3d EuleToRotation(const double& roll, const double& pitch, const double& yaw) {
   Eigen::AngleAxisd rot_z(yaw, Eigen::Vector3d::UnitZ());
   Eigen::AngleAxisd rot_y(pitch, Eigen::Vector3d::UnitY());
@@ -32,12 +32,19 @@ Eigen::Quaterniond EulerToQuaternion(double roll, double pitch, double yaw) {
   return Eigen::Quaterniond(w, x, y, z);
 }
 
+// Eigen::Vector3d RotationToEuler(Eigen::Matrix3d R) {
+//   Eigen::Vector3d euler = R.eulerAngles(2, 1, 0);
+//   double tmp = euler(0);
+//   euler(0) = euler(2);
+//   euler(2) = tmp;
+//   return euler;
+// }
+
 Eigen::Vector3d RotationToEuler(Eigen::Matrix3d R) {
-  Eigen::Vector3d euler = R.eulerAngles(2, 1, 0);
-  double tmp = euler(0);
-  euler(0) = euler(2);
-  euler(2) = tmp;
-  return euler;
+  double pitch = std::atan2(-R(2, 0), std::sqrt(R(0, 0) * R(0, 0) + R(1, 0) * R(1, 0)));
+  double roll = std::atan2(R(1, 0) / cos(pitch), R(0, 0) / cos(pitch));
+  double yaw = std::atan2(R(2, 1) / cos(pitch), R(2, 2) / cos(pitch));
+  return Eigen::Vector3d(roll, pitch, yaw);
 }
 
 Eigen::Quaterniond RotationMatrixToQuaternion(Eigen::Matrix3d& R) {
@@ -62,29 +69,33 @@ Eigen::Matrix3d QuaternionToRotationMatrix(Eigen::Quaterniond& q) {
 
   return R;
 }
-
+}  // namespace mymath
 int main(int argc, char** argv) {
   google::InitGoogleLogging("glog_test");
   FLAGS_logtostderr = 1;
   FLAGS_colorlogtostderr = 1;
 
-  Eigen::Matrix3d R_2 = EuleToRotation(M_PI / 4, -M_PI / 4, M_PI / 2);
+  Eigen::Matrix3d R_2 = mymath::EuleToRotation(M_PI / 4, -M_PI / 4, M_PI / 2);
   LOG(WARNING) << "R_2: \n" << R_2;
 
-  Eigen::Vector3d euler = RotationToEuler(R_2);
+  Eigen::Vector3d euler = mymath::RotationToEuler(R_2);
   LOG(WARNING) << "Euler: \n" << euler;
 
-  Eigen::Quaterniond q = EulerToQuaternion(M_PI / 4, -M_PI / 4, M_PI / 2);
+  Eigen::Quaterniond q = mymath::EulerToQuaternion(M_PI / 4, -M_PI / 4, M_PI / 2);
   LOG(WARNING) << "Quaternion: \n" << q.w() << " " << q.x() << " " << q.y() << " " << q.z();
 
-  Eigen::Vector3d euler_2 = QuaternionToEuler(q);
+  Eigen::Vector3d euler_2 = mymath::QuaternionToEuler(q);
   LOG(WARNING) << "Euler_2: \n" << euler_2;
 
-  Eigen::Matrix3d R_3 = QuaternionToRotationMatrix(q);
+  Eigen::Matrix3d R_3 = mymath::QuaternionToRotationMatrix(q);
   LOG(WARNING) << "R_3: \n" << R_3;
 
-  Eigen::Quaterniond q_2 = RotationMatrixToQuaternion(R_3);
+  Eigen::Quaterniond q_2 = mymath::RotationMatrixToQuaternion(R_3);
   LOG(WARNING) << "Quaternion_2: \n" << q_2.w() << " " << q_2.x() << " " << q_2.y() << " " << q_2.z();
+
+  Eigen::Matrix3d R_4 = Eigen::Matrix3d::Identity();
+  Eigen::Vector3d euler_3 = mymath::RotationToEuler(R_4);
+  LOG(INFO) << "Euler: \n" << euler_3;
 
   return 0;
 }
