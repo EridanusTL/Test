@@ -1,3 +1,4 @@
+#include <future>
 #include <iostream>
 #include <memory>
 #include <mutex>
@@ -7,7 +8,7 @@ std::mutex mtx1;
 std::mutex mtx2;
 std::timed_mutex time_mtx;
 
-class A {
+class SingleTon {
  public:
   void fun1() {
     mtx1.lock();
@@ -25,25 +26,22 @@ class A {
   }
 };
 
-void fun(int& x) {
-  for (size_t i = 0; i < 2; i++) {
-    std::unique_lock<std::timed_mutex> lock(time_mtx, std::defer_lock);
-    if (lock.try_lock_for(std::chrono::seconds(1))) {
-      std::this_thread::sleep_for(std::chrono::seconds(2));
-      x++;
-    }
+int fun() {
+  int x = 0;
+
+  for (size_t i = 0; i < 1000; i++) {
+    x++;
   }
+  return x;
 }
 
 int main(int argc, char* argv[]) {
   int x = 0;
 
-  std::thread t1(&fun, std::ref(x));
-  std::thread t2(&fun, std::ref(x));
+  std::future<int> future_int = std::async(std::launch::async, fun);
+  std::cout << fun() << std::endl;
+  std::cout << future_int.get() << std::endl;
 
-  t1.join();
-  t2.join();
-  std::cout << "x: " << x << std::endl;
   std::cout << "Thread joined!" << std::endl;
 
   return 0;

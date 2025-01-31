@@ -70,7 +70,8 @@
     "unordered_set": "cpp",
     "fstream": "cpp",
     "mutex": "cpp",
-    "codecvt": "cpp"
+    "codecvt": "cpp",
+    "future": "cpp"
   },
   "ros.distro": "humble",
   "C_Cpp.default.compilerPath": "C:\\Users\\11844\\mingw64\\bin\\g++.exe"
