@@ -14,3 +14,5 @@ target_link_libraries(my_math_test Eigen3::Eigen glog)
 target_link_libraries(thread_test Eigen3::Eigen glog pthread)
 target_link_libraries(key_dection_test glog pthread)
 target_link_libraries(singleton pthread)
+
+add_executable(test test.cc)
