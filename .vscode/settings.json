@@ -71,8 +71,10 @@
     "fstream": "cpp",
     "mutex": "cpp",
     "codecvt": "cpp",
-    "future": "cpp"
+    "future": "cpp",
+    "geometry": "cpp"
   },
   "ros.distro": "humble",
-  "C_Cpp.default.compilerPath": "C:\\Users\\11844\\mingw64\\bin\\g++.exe"
+  "C_Cpp.default.compilerPath": "C:\\Users\\11844\\mingw64\\bin\\g++.exe",
+  "marscode.chatLanguage": "cn"
 }

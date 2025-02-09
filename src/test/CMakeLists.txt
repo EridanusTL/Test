@@ -7,6 +7,8 @@ add_executable(thread_test thread_test.cc)
 add_executable(key_dection_test key_dection_test.cc)
 add_executable(joystick joystick.cc)
 add_executable(singleton singleton.cc)
+add_executable(test test.cc)
+add_executable(eigen_test eigen_test.cc)
 
 
 target_link_libraries(glog_test glog)
@@ -14,5 +16,4 @@ target_link_libraries(my_math_test Eigen3::Eigen glog)
 target_link_libraries(thread_test Eigen3::Eigen glog pthread)
 target_link_libraries(key_dection_test glog pthread)
 target_link_libraries(singleton pthread)
-
-add_executable(test test.cc)
+target_link_libraries(eigen_test Eigen3::Eigen glog)
