@@ -1,7 +1,12 @@
 #!/bin/bash
 
 docker_image=tlbot/ubuntu22-robotics:latest
-id=ros-humble
+if branch_name=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); then
+    id="$branch_name"
+else
+    echo "Warning: Not in git , use default ID 'ros-humble'"
+    id=ros-humble 
+fi
 
 # docker pull $docker_image
 
@@ -39,21 +44,22 @@ else
             --volume "/run/user:/run/user" \
             --volume "/tmp:/tmp" \
             --volume "/dev:/dev" \
-            --volume "$HOME/.ssh:$HOME/.ssh" \
             --volume "/etc/localtime:/etc/localtime:ro" \
             --volume "/etc/passwd:/etc/passwd:ro" \
             --volume "/etc/shadow:/etc/shadow:ro" \
             --volume "/etc/group:/etc/group:ro" \
             --volume "/etc/gshadow:/etc/gshadow:ro" \
             --volume "/etc/apt/apt.conf:/etc/apt/apt.conf:ro" \
+            --volume "$(pwd):$(pwd)" \
             --volume "$(pwd)/scripts/bashrc:$HOME/.bashrc" \
+            --volume "$HOME/dataset:$HOME/dataset:rw" \
+            --volume "$HOME/.ssh:$HOME/.ssh" \
             --volume "$HOME/.cache:$HOME/.cache:rw" \
             --volume "$HOME/.ccache:$HOME/.ccache:rw" \
             --volume "$HOME/.vscode/extensions:$HOME/.vscode-server/extensions:rw" \
             --tmpfs "$HOME:exec,rw,uid=$(id -u)" \
             --tmpfs "$HOME/.vscode-server:exec,rw,uid=$(id -u)" \
-            --volume $(pwd):$(pwd) \
-            --user $(id -u) \
+            --user root \
             $group_add_opts \
             $docker_image \
             bash --rcfile ~/.bashrc
