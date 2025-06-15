@@ -52,14 +52,14 @@ else
             --volume "/etc/apt/apt.conf:/etc/apt/apt.conf:ro" \
             --volume "$(pwd):$(pwd)" \
             --volume "$(pwd)/scripts/bashrc:$HOME/.bashrc" \
-            --volume "$HOME/dataset:$HOME/dataset:rw" \
+            --volume "$(pwd)/data/dataset:$(pwd)/data/dataset:rw" \
             --volume "$HOME/.ssh:$HOME/.ssh" \
             --volume "$HOME/.cache:$HOME/.cache:rw" \
             --volume "$HOME/.ccache:$HOME/.ccache:rw" \
             --volume "$HOME/.vscode/extensions:$HOME/.vscode-server/extensions:rw" \
             --tmpfs "$HOME:exec,rw,uid=$(id -u)" \
             --tmpfs "$HOME/.vscode-server:exec,rw,uid=$(id -u)" \
-            --user root \
+            --user  $(id -u)\
             $group_add_opts \
             $docker_image \
             bash --rcfile ~/.bashrc

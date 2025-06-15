@@ -128,7 +128,5 @@ export OMP_NUM_THREADS=4
 # ros
 source /opt/ros/humble/setup.bash
 
-# dataset
-ln -s /home/$(id -un)/dataset $(pwd)/data/
 
 
