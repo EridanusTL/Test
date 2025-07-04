@@ -5,6 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt upgrade -y && \
   apt install -y git vim curl wget sudo build-essential cmake python-is-python3 python3-pip net-tools
 
+RUN pip install tensorboard
+
 # ROS2
 RUN  apt update && apt install locales && \
   locale-gen en_US en_US.UTF-8 && \

@@ -52,7 +52,7 @@ else
             --volume "/etc/apt/apt.conf:/etc/apt/apt.conf:ro" \
             --volume "$(pwd):$(pwd)" \
             --volume "$(pwd)/scripts/bashrc:$HOME/.bashrc" \
-            --volume "$(pwd)/data/dataset:$(pwd)/data/dataset:rw" \
+            --volume "$(pwd)/data:$(pwd)/data:rw" \
             --volume "$HOME/.ssh:$HOME/.ssh" \
             --volume "$HOME/.cache:$HOME/.cache:rw" \
             --volume "$HOME/.ccache:$HOME/.ccache:rw" \
