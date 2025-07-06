@@ -8,7 +8,7 @@ else
     id=ros-humble 
 fi
 
-# docker pull $docker_image
+docker pull $docker_image
 
 for gid in $(id -G); do
   group_add_opts="$group_add_opts --group-add $gid"
@@ -56,9 +56,9 @@ else
             --volume "$HOME/.ssh:$HOME/.ssh" \
             --volume "$HOME/.cache:$HOME/.cache:rw" \
             --volume "$HOME/.ccache:$HOME/.ccache:rw" \
-            --volume "$HOME/.vscode/extensions:$HOME/.vscode-server/extensions:rw" \
-            --tmpfs "$HOME:exec,rw,uid=$(id -u)" \
+            --volume "$HOME/.vscode-server/extensions:$HOME/.vscode-server/extensions:rw" \
             --tmpfs "$HOME/.vscode-server:exec,rw,uid=$(id -u)" \
+            --tmpfs "$HOME:exec,rw,uid=$(id -u)" \
             --user  $(id -u)\
             $group_add_opts \
             $docker_image \
