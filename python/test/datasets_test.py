@@ -9,7 +9,7 @@ if __name__ == "__main__":
     dataset_transform = torchvision.transforms.Compose(
         [torchvision.transforms.ToTensor()]
     )
-    tran_set = torchvision.datasets.CIFAR10(
+    train_set = torchvision.datasets.CIFAR10(
         root="data/CIFAR10", train=True, transform=dataset_transform, download=True
     )
     test_set = torchvision.datasets.CIFAR10(

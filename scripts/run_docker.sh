@@ -56,7 +56,7 @@ else
             --volume "$HOME/.ssh:$HOME/.ssh" \
             --volume "$HOME/.cache:$HOME/.cache:rw" \
             --volume "$HOME/.ccache:$HOME/.ccache:rw" \
-            --volume "$HOME/.vscode-server/extensions:$HOME/.vscode-server/extensions:rw" \
+            --volume "$HOME/.vscode/extensions:$HOME/.vscode-server/extensions:rw" \
             --tmpfs "$HOME/.vscode-server:exec,rw,uid=$(id -u)" \
             --tmpfs "$HOME:exec,rw,uid=$(id -u)" \
             --user  $(id -u)\
