@@ -28,7 +28,9 @@ if __name__ == "__main__":
     input = torch.reshape(input, (1, 1, 5, 5))
     kernel = torch.reshape(kernel, (1, 1, 3, 3))
     output = F.conv2d(input, kernel)
+    output_2 = F.conv2d(input, kernel, padding=1)
 
     print(input.shape)
     print(input)
     print(output)
+    print(output_2)
