@@ -1,8 +1,9 @@
 from torch.utils.data import DataLoader
-from torch.utils.tensorboard import SummaryWriter
 from torchvision import datasets, transforms
 from PIL import Image
 from matplotlib import pyplot as plt
+
+from torch.utils.tensorboard import SummaryWriter
 from datetime import datetime
 import os
 
