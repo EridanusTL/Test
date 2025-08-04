@@ -40,7 +40,7 @@ else
             --env "DISPLAY=$DISPLAY" \
             --env "QT_X11_NO_MITSHM=1" \
             --env NVIDIA_DRIVER_CAPABILITIES=all \
-            --env="WORKSPACE_PATH=$(pwd)" \
+            --env "WORKSPACE_PATH=$(pwd)" \
             --volume "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
             --volume "/run/user:/run/user" \
             --volume "/tmp:/tmp" \
