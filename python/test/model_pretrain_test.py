@@ -23,6 +23,11 @@ if __name__ == "__main__":
         module=nn.Linear(in_features=1000, out_features=10),
     )
     print(vgg16_true)
+    print(vgg16_false)
+    vgg16_false.classifier[-1] = nn.Linear(in_features=4096, out_features=10)
+    print(vgg16_false)
+
+    # View parameters quantity
     features_params = sum(p.numel() for p in vgg16_true.features.parameters())
     classifier_params = sum(p.numel() for p in vgg16_true.classifier.parameters())
     total_params = sum(p.numel() for p in vgg16_true.parameters())
